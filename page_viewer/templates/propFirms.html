@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<div id="prop-firms-page" class="{{searchQuery}}" style="background-color: #222324;">
+  <ul class="cards"></ul>
+  <div class="prop-firm-container" style="display: none">
+    <div class="prop-firm-button-holder">
+      <a href="prop-firms/edit">
+        <button class="transparent-button icon-button add-prop-firm-button add-prop-firm">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#206592"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        </button>
+      </a>
+    </div>
+  </div>
+    
+</div>
+{% endblock %}

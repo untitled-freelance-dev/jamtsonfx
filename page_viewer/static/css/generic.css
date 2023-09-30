@@ -1,0 +1,67 @@
+
+/* Transparent Button */
+.transparent-button {
+    position: relative;
+    height: 65px;
+    width: 210px;
+    margin: 0 40px;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+    background: #222324;
+    overflow: hidden;
+    transition: 0.6s;
+}
+
+.transparent-button {
+    width: auto;
+    color: #206592;
+    border-color: #206592;
+}
+
+.transparent-button:before,
+.transparent-button:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    filter: blur(30px);
+    opacity: 0.4;
+    transition: 0.6s;
+}
+
+.transparent-button:before {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+}
+
+.transparent-button:after {
+    width: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+}
+
+.transparent-button:hover:before,
+.transparent-button:hover:after {
+    opacity: 0.6;
+    transform: translateX(320px) skewX(-45deg);
+}
+
+.transparent-button:hover {
+    color: #f2f2f2;
+}
+
+.transparent-button:hover svg {
+    fill: #f2f2f2;
+}
+
+.transparent-button:hover {
+    background: #2c94fe;
+}

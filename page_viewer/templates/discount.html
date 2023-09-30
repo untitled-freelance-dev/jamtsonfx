@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<div id="discount-page">
+    <div class="discount-table-wrapper" id="wrapper">
+        <table class="discount-table">
+            <thead>
+                <tr>
+                    <th>Prop Firm</th>
+                    <th>Prop Firm Name</th>
+                    <th>Discount%</th>
+                    <th>Discount Code/Link</th>
+                    <th>Website</th>
+                    <th>Buttons</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="discount-button-container" style="display: none;">
+            <div class="prop-firm-button-holder">
+                <button id="add-discount" class="transparent-button adminbutton"> Add Discount</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

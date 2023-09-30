@@ -1,0 +1,307 @@
+/* #################################### */
+
+/* PropFirms */
+
+/* #prop-firms-page {
+  background-color: #222324;
+} */
+
+.card-image>img {
+  height: 305px;
+  height: 305px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.prop-firm-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.prop-firm-container .prop-firm-button-holder {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-prop-firm-button {
+  border-radius: 50%;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-radius: 1rem;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-item {
+  display: inline-table;    /*previously - display: flex; */
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards-item {
+      width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards-item {
+      /* width: 33.3333%; */
+      width: 25%;
+  }
+}
+
+.prop-firm-card {
+  background-color: white;
+  border-radius: 0.50rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+} 
+
+.card-content {
+  padding: 1rem;
+  /* background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%); */
+  background: linear-gradient(to bottom left, #363030 40%, #615e5ec7 100%);
+}
+
+.card-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+  text-align: left;
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.made_by {
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.prop-firms-read-site-button-holder {
+  display: flex;
+  gap: 10px;
+}
+
+.prop-firms-read-site-button-holder>a>button {
+  width: 130px;
+}
+
+/* PropFirms Blogs */
+
+.blogs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.adminbutton {
+  margin: 25px;
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.prop-firm-blogs-main{
+  display: none;
+  background-color: #f4f4f4;
+  max-width: 1200px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.propfirm-main{
+  display: flex;
+}
+
+.propfirm-btn {
+  margin: 20px auto;
+}
+
+@media (max-width: 900px) {
+  .propfirm-main{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.propfirm-circular-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
+}
+.propfirm-circular-image img{
+  width:100%;
+}
+
+.prop-firm-basic-info {
+  padding: 25px;
+  border: 0;
+  margin: 0;
+  align-self: center;
+}
+
+.prop-firm-main-editor {
+  margin-top: 30px !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #f4f4f4;
+}
+
+.prop-firm-basic-info {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* table */
+
+.propfirm-main-body table {
+  border-collapse: collapse;
+  border-radius:6px;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.propfirm-main-body table thead tr {
+  /* background-color: #009879; */
+  color: #ffffff;
+  text-align: left;
+}
+
+.propfirm-main-body table th,
+.propfirm-main-body table td {
+  padding: 12px 15px;
+}
+
+.propfirm-main-body table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.propfirm-main-body table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.propfirm-main-body table {
+  border: 2px solid #00987a36;
+}
+
+.propfirm-main-body table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.propfirm_span {
+  padding: 10px;
+}
+
+.prop-firm-basic {
+  margin: 20px 0;
+}
+
+.prop-firm-input-field {
+  color: black !important;
+}
+
+.file input {display: none;}
+.file .view {
+  margin: 20px 0;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  cursor: pointer;
+  padding: 0.5em 0.75em;
+  background: #2e2e2e;
+  border-radius: 5px;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+}
+.file .view:before {
+  content: "";
+  background: #03A9F4;
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity .2s ease, transform 0s ease .2s, background 0s ease 1s;
+}
+.file .view:hover:before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.file .view.file-select:before{background: #f44336;}
+.file .view:active:before {
+  background: #225588;
+  transition: background 0s ease;
+}
+.file .view.file-select:active:before{
+  background: #B71C1C;
+  transition: background 0s ease;
+}
+.file .view.file-select:after {content: "X"; color: red;}
+.file .view.file-select:hover:after {color: white; z-index: 1}
+.file .view > * {z-index: 1}
+.file .ico {
+  height: auto;
+  width: 1em;
+}
+.file .view .ico svg {
+  fill: white;
+  width: 100%;
+  height: 100%;
+}
+.file .view .ico svg:nth-child(2) {display: none}
+.file .view.file-select .ico svg:nth-child(1) {display: none}
+.file .view.file-select .ico svg:nth-child(2) {display: block}
+.file .view .text {
+  color: #f6f6f6;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

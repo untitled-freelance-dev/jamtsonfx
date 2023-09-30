@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JamtsonsFX</title>
+
+  <!-- CSS Stylesheets -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/generic.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bestMatch.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/propfirm.css' %}">
+  <link rel="stylesheet" href="{% static 'css/discount.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/newsletter.css' %}"/>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/7b815a2147.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/568be3948b.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  {% include 'includes/_navbar.html' %}
+  <!-- Whatsapp -->
+  <div class="whatsapp-button-holder">
+    <a href="https://api.whatsapp.com/send?phone=919007381678&text=Hey%2C%20JamtsonFX%20Team%20" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/whatsapp.png' %}" alt="Whatsapp Logo">
+    </a>
+  </div>
+
+  <!-- News Letter -->
+  <div class="news-letter-holder">
+    <button id="news-letter-button" class="transparent-button icon-button">
+      <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#206592"><g><path d="M381.7,225.9c0-97.6-52.5-130.8-101.6-138.2c0-0.5,0.1-1,0.1-1.6c0-12.3-10.9-22.1-24.2-22.1c-13.3,0-23.8,9.8-23.8,22.1   c0,0.6,0,1.1,0.1,1.6c-49.2,7.5-102,40.8-102,138.4c0,113.8-28.3,126-66.3,158h384C410.2,352,381.7,339.7,381.7,225.9z"/><path d="M256.2,448c26.8,0,48.8-19.9,51.7-43H204.5C207.3,428.1,229.4,448,256.2,448z"/></g></svg>
+    </button>
+  </div>
+
+  <div class="news-letter-form-holder">
+    <h3 class="head" style="margin-top: 10px; color: #0781fe">News Letter</h3>
+    <hr style="border-top: 4px solid #0781fe; width: 190px;">
+    <form id="news-letter-form" class="custom-input-holder">
+      <div class="news-letter-input-field text writing">
+        <input class="user-name-input-field" type="text" id="user-name" name="name" required="">
+        <label for="user-name">Name</label>
+        <span></span>
+      </div>
+      <div class="news-letter-input-field text writing">
+        <input class="email-address-input-field" type="email" id="email-address" name="email" required="">
+        <label for="email-address">Email</label>
+        <span></span>
+      </div>
+    </form>
+    <div>
+      <a href="/news-letter" style="text-decoration:none">
+        <button id="news-letter-view" class="transparent-button"  style="display: none;" >View</button>
+      </a>
+      <button id="news-letter-submit" class="transparent-button">Submit</button>
+    </div>
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" style="display: none;">
+    <div class="toast-content">
+      <i class="fas fa-solid fa-check check"></i>
+      <div class="toast-message">
+        <span class="short-message text text-1"></span>
+        <span class="detailed-message text text-2"></span>
+      </div>
+    </div>
+    <i class="fa-solid fa-xmark toast-close"></i>
+    <div class="progress"></div>
+  </div>
+  {% block body %}{% endblock %}
+
+  <!-- Footer -->
+
+  <footer id="footer">
+    <div class="main-foot">
+      <div class="left-footer">
+        <img src="{% static 'images/JamtsonsFX 2.png' %}" alt="JamtsonsFX Logo"  height=auto width="150px"/>
+        <div class="company-details"><p>JamtsonFX is a Proprietary Trading Consultancy where we help the traders with</p>
+          <p><i class="fas fa-check" style="color: #04d9ff;"></i> Queries Related to prop firm</p>
+          <p><i class="fas fa-check" style="color: #04d9ff;"></i> Latest Promotion /Discount</p>
+          <p><i class="fas fa-check" style="color: #04d9ff;"></i> The Best Firm according to your method</p>
+          <!-- <p><i class="fas fa-check" style="color: #04d9ff;"></i> Processing account via Local payment</p> -->
+        </div>
+      </div>
+      <div class="right-footer">
+        <div class="foot-text">
+          <p class="bold-text" style="color: #FFF;">Overview</p>
+          <p><a href="/#features">Features</a></p>
+          <p><a href="/#FAQs">FAQs</a></p>
+          <p><a href="/#brokers">Top Propfirms</a></p>
+          <p><a href="/#offering">Offerings</a></p>
+          <p><a href="/#testimonials">Testimonials</a></p>
+        </div>
+        <div class="foot-text">
+          <p class="bold-text" style="color: #FFF;">Find Prop Firms</p>
+          <p><a href="/best-match">Best Match</a></p>
+          <p><a href="/prop-firms">Prop Firms Blogs</a></p>
+          <p><a href="/discount">Discounts</a></p>
+        </div>
+        <div class="foot-text">
+          <p class="bold-text" style="color: #FFF;">Get In Touch</p>
+          <p><a href="https://api.whatsapp.com/send?phone=919007381678&text=Hey%2C%20JamtsonFX%20Team%20" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          <p><a href="https://t.me/Jamtson" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+          <p><a href="https://www.youtube.com/@JamtsonFX" target="_blank" rel="noopener noreferrer"">YouTube</a></p>
+          <p><a href="https://www.facebook.com/jamtsonfx" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-icons">
+      <a href="https://www.facebook.com/jamtsonfx" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-square-facebook font-icon"></i>
+      </a>
+      <a href="https://www.youtube.com/@JamtsonFX" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-youtube font-icon"></i>
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=919007381678&text=Hey%2C%20JamtsonFX%20Team%20" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp font-icon"></i>
+      </a>
+      <a href="https://t.me/Jamtson" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-telegram font-icon"></i>
+      </a>
+    </div>
+    <hr class="thin-hr">
+    <div class="desc">© 2023 All right reserved</div>
+  </footer>
+  <script type="module" src="{% static 'js/home.js' %}"></script>
+  <script type="module" src="{% static 'js/bestMatch.js' %}"></script>
+  <script type="module" src="{% static 'js/discount.js' %}"></script>
+  <script type="module" src="{% static 'js/propFirm.js' %}"></script>
+  <script type="module" src="{% static 'js/propFirmBlogs.js' %}"></script>
+  <script type="module" src="{% static 'js/newsletter.js' %}"></script>
+</body>
+
+</html>

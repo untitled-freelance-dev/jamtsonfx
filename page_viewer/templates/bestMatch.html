@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<div id="best-match">
+  <div class="start-button-holder">
+    <h3 class="head"><span style="color: #04d9ff">Suggest Best Prop Firms</span></h3>
+    <hr>
+    <div class="row" style="margin: 1%;">
+      <div class="best-match-left-content col-lg-6 text-center">
+        <img src="{% static 'images/bestmatch.png' %}" height="auto" width="400px">
+      </div>
+      <div class="best-match-right-content col-lg-6">
+        <div>
+          <h3>Let's Find The Most Suitable Prop Firms For You.</h3>
+          <p style="padding: 5% 0;">Let us get to know you better to find the best Prop Firm that can help you reach
+            your trading goals. Answer few simple questions to start your journey.</p>
+        </div>
+        <button class="transparent-button start-button">Find Prop Firm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-card-parent-holder mdl-card mdl-shadow-2dp">
+    <div class="category-holder mdl-card-supporting-text">
+      <div class="category mdl-stepper-horizontal-alternative">
+        <!-- <div class="category-item mdl-stepper-step active-step step-done">
+          <div class="mdl-stepper-circle"><span>1</span></div>
+          <div class="mdl-stepper-title" contenteditable="true">Add pets</div>
+          <div class="mdl-stepper-bar-left"></div>
+          <div class="mdl-stepper-bar-right"></div>
+        </div>
+        <div class="mdl-stepper-step active-step editable-step">
+          <div class="mdl-stepper-circle"><span>2</span></div>
+          <div class="mdl-stepper-title">Set location</div>
+          <div class="mdl-stepper-bar-left"></div>
+          <div class="mdl-stepper-bar-right"></div>
+        </div>
+        <div class="mdl-stepper-step active-step">
+          <div class="mdl-stepper-circle"><span>3</span></div>
+          <div class="mdl-stepper-title">Invite friends</div>
+          <div class="mdl-stepper-bar-left"></div>
+          <div class="mdl-stepper-bar-right"></div>
+       </div> -->
+      </div>
+      <img class="category-add" src="{% static 'images/add.svg' %}"></img>
+    </div>
+  </div>
+
+  <div id="quiz" class="quiz-box">
+    <ol class="questionnaire">
+    </ol>
+    <div class="form-operation-button-holder">
+      <button class="transparent-button icon-button save-questionnaire-button">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#04d9ff">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z" />
+        </svg>
+      </button>
+      <button class="transparent-button icon-button add-questionnaire-button add-questionnaire">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#04d9ff">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+      </button>
+    </div>
+    <div class="previous-next-button">
+      <button class="transparent-button start-button previous">Previous</button>
+      <button class="transparent-button start-button next">Next</button>
+      <button class="transparent-button start-button submit">Submit</button>
+    </div>
+  </div>
+  <button class="transparent-button start-button view-combination">Combinations</button>
+  <div id="combo-box" class="quiz-box">
+    <div class="combo-table-wrapper">
+      <table class="combo-table">
+        <thead>
+          <tr>
+            <th>Serial Number</th>
+            <th>Combination</th>
+            <th>Prop Firm</th>
+            <th>Buttons</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div class="questionnaire-combo-wrapper">
+      <ol class="questionnaire-combination">
+      </ol>
+      <div class="previous-next-button">
+        <button class="transparent-button start-button questionnaire-combo-submit">Submit</button>
+        <button class="transparent-button icon-button questionnaire-combo-cancel" style="display: none;"><svg
+            xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#04d9ff">
+            <path d="M0 0h24v24H0V0z" fill="none"></path>
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z">
+            </path>
+          </svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
