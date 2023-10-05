@@ -1,4 +1,4 @@
-import { readPropFirms } from "./api.js";
+import { requestURL, readPropFirms } from "./api.js";
 
 function loadPropFirm(isAdmin) {
     isAdmin ? document.querySelector('.prop-firm-container').removeAttribute('style') : document.querySelector('.prop-firm-container').remove();

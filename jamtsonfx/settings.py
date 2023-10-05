@@ -123,10 +123,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'page_viewer/static/'
-STATICFILES_DIRS = (
-    BASE_DIR.joinpath('page_viewer/static/js/api'),
-)
+MEDIA_ROOT = Path(BASE_DIR, 'page_viewer/assets')
+MEDIA_URL = '/page_viewer/assets/'
+STATIC_ROOT = Path(BASE_DIR, 'page_viewer/static')
+STATIC_URL = '/page_viewer/static/'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

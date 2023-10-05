@@ -7,7 +7,7 @@ class PropFirm(models.Model):
     name = models.CharField(max_length=300, null=False, blank=False)
     url = models.TextField(null=False, blank=False)
     summary = models.TextField(null=True, blank=True)
-    logo = models.ImageField(upload_to='page_viewer/static/images/propfirmlogo', null=False, blank=False)
+    logo = models.ImageField(upload_to='propfirmlogo/', null=False, blank=False)
     blog_content = models.TextField(null=True, blank=True)
 
     objects = models.Manager()

@@ -193,4 +193,4 @@ async function deleteNewsLetter(newletterID) {
     return await response;
 }
 
-export { login, createPropFirm, updatePropFirm, readPropFirms, deletePropFirm, createCategory, updateCategory, readCategory, deleteCategory, createQuestionnaire, updateQuestionnaire, readQuestionnaire, deleteQuestionnaire, createCombination, updateCombination, readCombination, deleteCombination, createDiscount, updateDiscount, readDiscount, deleteDiscount, createNewsLetter, readNewsLetter, deleteNewsLetter }
+export { requestURL, login, createPropFirm, updatePropFirm, readPropFirms, deletePropFirm, createCategory, updateCategory, readCategory, deleteCategory, createQuestionnaire, updateQuestionnaire, readQuestionnaire, deleteQuestionnaire, createCombination, updateCombination, readCombination, deleteCombination, createDiscount, updateDiscount, readDiscount, deleteDiscount, createNewsLetter, readNewsLetter, deleteNewsLetter }
