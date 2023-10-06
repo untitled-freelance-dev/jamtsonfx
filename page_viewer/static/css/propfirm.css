@@ -158,7 +158,7 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: blue;
+  border-style: solid;
 }
 .propfirm-circular-image img{
   width:100%;
