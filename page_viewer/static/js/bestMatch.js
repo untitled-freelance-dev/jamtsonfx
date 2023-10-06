@@ -75,7 +75,7 @@ function addCategory(event = undefined, id = '', categoryName = '', categoryCoun
                                 <div class="category-name mdl-stepper-title" contenteditable=${isAdminFlag}>${!event ? categoryName : ''}</div>
                                 <div class="mdl-stepper-bar-left"></div>
                                 <div class="mdl-stepper-bar-right"></div>
-                                ${isAdminFlag ? '<div class="category-button-holder"><img class="category-delete" src="page_viewer/static/images/delete.svg"><img class="category-submit" src="page_viewer/static/images/submit.svg"></div>' : ''}
+                                ${isAdminFlag ? '<div class="category-button-holder"><img class="category-delete" src="/page_viewer/assets/delete.svg"><img class="category-submit" src="/page_viewer/assets/submit.svg"></div>' : ''}
                             </div>`
     if (document.querySelectorAll('.category-item').length === 1) {
         submitQuestionnaireButton.style.display = 'flex';
