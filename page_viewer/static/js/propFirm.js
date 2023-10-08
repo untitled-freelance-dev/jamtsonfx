@@ -1,10 +1,15 @@
-import { requestURL, readPropFirms } from "./api.js";
+import { readPropFirms } from "./api.js";
 
 function loadPropFirm(isAdmin) {
     isAdmin ? document.querySelector('.prop-firm-container').removeAttribute('style') : document.querySelector('.prop-firm-container').remove();
     let propfirmcards = document.querySelector('.cards');
     let searchQuery = document.getElementById('prop-firms-page').className;
+    let questionnaireMessage = document.querySelector('.questionnaire-message');
     if (searchQuery) {
+        if (new URLSearchParams(window.location.search).get('found') === '') {
+            questionnaireMessage.style.display = 'block';
+            questionnaireMessage.textContent = 'BELOW ARE THE MATCHING FIRMS ACCORDING TO THE OPTION THAT YOU HAVE CHOSEN';
+        }
         searchQuery.split(',').forEach(propFirmName => {
             let readPropFirmCardAsyncObject = readPropFirms(propFirmName, 'ID');
             readPropFirmCardAsyncObject.then(propFirmResponse => {

@@ -6,6 +6,12 @@
   background-color: #222324;
 } */
 
+.questionnaire-message {
+  display: none;
+  color: #f6f6f6;
+  margin: 2.5%;
+}
+
 .card-image>img {
   height: 305px;
   height: 305px;

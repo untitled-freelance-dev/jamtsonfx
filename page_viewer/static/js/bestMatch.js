@@ -1,7 +1,7 @@
 import { activeToast, inputFieldSelector, find } from "./component.js";
 import { createCategory, updateCategory, readCategory, deleteCategory, createQuestionnaire, updateQuestionnaire, readQuestionnaire, deleteQuestionnaire, readPropFirms, createCombination, updateCombination, readCombination, deleteCombination } from "./api.js";
 
-let isAdminFlag, toastShortMessage, toastDetailedMessage, startButton, category, quizBox, questionnaire, addQuestionnaireButton, saveQuestionnaireButton, nextCategoryButton, previousCategoryButton, submitQuestionnaireButton, viewCombinationButton, comboBox, questionnaireComboMaker, tableCombo, questionnaireComboCancel, questionnaireComboSubmit;
+let isAdminFlag, toastShortMessage, toastDetailedMessage, startButton, category, quizBox, questionnaire, addQuestionnaireButton, saveQuestionnaireButton, nextCategoryButton, previousCategoryButton, submitQuestionnaireButton, tryAgainButton, viewCombinationButton, refreshCombinationButton, comboBox, questionnaireComboMaker, tableCombo, questionnaireComboCancel, questionnaireComboSubmit, questionnaireMessage;
 var categoryQuestionnaireDict = {}
 
 function loadBestMatch(isAdmin) {
@@ -13,14 +13,17 @@ function loadBestMatch(isAdmin) {
     nextCategoryButton = document.querySelector('.next');
     previousCategoryButton = document.querySelector('.previous');
     submitQuestionnaireButton = document.querySelector('.submit');
+    tryAgainButton = document.querySelector('.try-again');
     toastShortMessage = document.querySelector(".short-message");
     toastDetailedMessage = document.querySelector(".detailed-message");
+    questionnaireMessage = document.querySelector('.questionnaire-message');
     startButton.addEventListener('click', getCategoryAndQuestionnaire, false);
     nextCategoryButton.addEventListener('click', nextCategoryQuestionnaire, false);
     previousCategoryButton.addEventListener('click', previousCategoryQuestionnaire, false);
     submitQuestionnaireButton.addEventListener('click', submitQuestionnaire, false);
     // Admin HTML Element
     viewCombinationButton = document.querySelector('.view-combination');
+    refreshCombinationButton = document.querySelector('.refresh-combination');
     comboBox = document.querySelector('#combo-box');
     questionnaireComboMaker = document.querySelector('.questionnaire-combination')
     tableCombo = document.querySelector('.combo-table');
@@ -35,6 +38,7 @@ function loadBestMatch(isAdmin) {
         addQuestionnaireButton.addEventListener('click', addQuestionnaireForm, false);
         saveQuestionnaireButton.addEventListener('click', saveQuestionnaire, false);
         viewCombinationButton.addEventListener('click', viewCombination, false);
+        refreshCombinationButton.addEventListener('click', refreshCombination, false)
         questionnaireComboSubmit.addEventListener('click', submitQuestionnaireCombo, false);
         questionnaireComboCancel.addEventListener('click', cancelQuestionnaireCombo, false);
     } else {
@@ -202,11 +206,20 @@ function submitQuestionnaire(event) {
             if (questionIDs.length > 0 && answerIDs.length > 0) {
                 let readCombinationAsyncObject = readCombination('', questionIDs.join(', '), answerIDs.join(', '));
                 readCombinationAsyncObject.then(readCombitaionData => {
-                    let propFirmNames = [];
-                    readCombitaionData.forEach(readCombinationInfo => propFirmNames.push(readCombinationInfo.propFirm));
-                    if (propFirmNames.length > 0) {
-                        let windowUrl = window.location.href.replace(new RegExp('best-match'), `prop-firms?search=${propFirmNames.join(',')}`);
-                        window.location.href = windowUrl;
+                    if (readCombitaionData) {
+                        let propFirmNames = [];
+                        readCombitaionData.forEach(readCombinationInfo => propFirmNames.push(readCombinationInfo.propFirm));
+                        if (propFirmNames.length > 0) {
+                            let windowUrl = window.location.href.replace(new RegExp('best-match'), `prop-firms?search=${propFirmNames.join(',')}&found`);
+                            window.location.href = windowUrl;
+                        } else {
+                            questionnaireMessage.style.display = 'block';
+                            questionnaireMessage.textContent = 'OOPS there is no match, please try changing your option TRY AGAIN';
+                            questionnaire.style.display = 'none';
+                            previousCategoryButton.style.display = 'none';
+                            submitQuestionnaireButton.style.display = 'none';
+                            tryAgainButton.style.display = 'flex';
+                        }
                     }
                 });
             }
@@ -443,7 +456,38 @@ function questionnaireFormConvertion(event) {
 }
 
 function viewCombination(event) {
-    comboBox.style.display = 'flex';
+    if (event.target.textContent === 'Combinations') {
+        event.target.textContent = 'Hide Combinations'
+        refreshCombinationButton.style.display = 'flex';
+        comboBox.style.display = 'flex';
+        let readQuestionnaireAsyncObject = readQuestionnaire();
+        readQuestionnaireAsyncObject.then(questionnaireData => {
+            if (questionnaireData.length > 0) {
+                questionnaireData.forEach((questionnaireInfo, index) => questionnaireCombinationMakerList(index, questionnaireInfo));
+                let readPropFirmAsyncObject = readPropFirms();
+                readPropFirmAsyncObject.then(propFirmData => {
+                    createPropFirmList(propFirmData);
+                    let readQuestionnaireComboAsyncObject = readCombination();
+                    readQuestionnaireComboAsyncObject.then(questionnaireComboData => {
+                        questionnaireComboData.forEach((questionnaireComboInfo, index) => createComboTable(questionnaireComboInfo, index + 1))
+        });
+                });
+            } else {
+                questionnaireComboMaker.innerHTML = '';
+            }
+        });
+    } else {
+        event.target.textContent = 'Combinations';
+        comboBox.removeAttribute('style');
+        refreshCombinationButton.removeAttribute('style');
+        tableCombo.querySelector('tbody').innerHTML = '';
+        questionnaireComboMaker.innerHTML = '';
+    }
+}
+
+function refreshCombination(event) {
+    tableCombo.querySelector('tbody').innerHTML = '';
+    questionnaireComboMaker.innerHTML = '';
     let readQuestionnaireAsyncObject = readQuestionnaire();
     readQuestionnaireAsyncObject.then(questionnaireData => {
         if (questionnaireData.length > 0) {
@@ -474,11 +518,11 @@ function questionnaireCombinationMakerList(questionnaireIndex, questionnaireData
                         </div>`;
     });
     questionnaireComboMaker.innerHTML += `<li>
-                                    <div class="questionnaire-holder">
-                                        <div class="question" id="${questionnaireData.questionInfo.id}">${questionnaireData.questionInfo.question}</div>
-                                        ${answerOptions}
-                                    </div>
-                                </li>`;
+                                            <div class="questionnaire-holder">
+                                                <div class="question" id="${questionnaireData.questionInfo.id}">${questionnaireData.questionInfo.question}</div>
+                                                ${answerOptions}
+                                            </div>
+                                        </li>`;
 }
 
 function createPropFirmList(propFirmData) {

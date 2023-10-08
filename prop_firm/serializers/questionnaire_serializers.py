@@ -1,4 +1,5 @@
 import uuid
+import itertools
 from rest_framework import serializers
 
 # Custom Import
@@ -150,7 +151,9 @@ class QuestionnaireSerializers(serializers.Serializer):
             #            answer_object.data))),
             #                 question_object.data))
         elif instance_name.upper() == 'ALL' and not primary_key:
-            question_instance_list = QuestionSerializers.retrieve()
+            question_instance_list = list(itertools.chain.from_iterable(
+                list(map(lambda category: QuestionSerializers.retrieve(foreign_key=category),
+                         CategorySerializer.retrieve()))))
             return list(map(lambda question_instance: (QuestionSerializers(instance=question_instance).data,
                                                        AnswerSerializers(instance=AnswerSerializers.retrieve(
                                                            foreign_key=question_instance), many=True).data),

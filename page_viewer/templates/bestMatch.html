@@ -23,30 +23,13 @@
   <div class="category-card-parent-holder mdl-card mdl-shadow-2dp">
     <div class="category-holder mdl-card-supporting-text">
       <div class="category mdl-stepper-horizontal-alternative">
-        <!-- <div class="category-item mdl-stepper-step active-step step-done">
-          <div class="mdl-stepper-circle"><span>1</span></div>
-          <div class="mdl-stepper-title" contenteditable="true">Add pets</div>
-          <div class="mdl-stepper-bar-left"></div>
-          <div class="mdl-stepper-bar-right"></div>
-        </div>
-        <div class="mdl-stepper-step active-step editable-step">
-          <div class="mdl-stepper-circle"><span>2</span></div>
-          <div class="mdl-stepper-title">Set location</div>
-          <div class="mdl-stepper-bar-left"></div>
-          <div class="mdl-stepper-bar-right"></div>
-        </div>
-        <div class="mdl-stepper-step active-step">
-          <div class="mdl-stepper-circle"><span>3</span></div>
-          <div class="mdl-stepper-title">Invite friends</div>
-          <div class="mdl-stepper-bar-left"></div>
-          <div class="mdl-stepper-bar-right"></div>
-       </div> -->
       </div>
       <img class="category-add" src="/page_viewer/assets/add.svg"></img>
     </div>
   </div>
 
   <div id="quiz" class="quiz-box">
+    <div class="questionnaire-message"></div>
     <ol class="questionnaire">
     </ol>
     <div class="form-operation-button-holder">
@@ -68,9 +51,19 @@
       <button class="transparent-button start-button previous">Previous</button>
       <button class="transparent-button start-button next">Next</button>
       <button class="transparent-button start-button submit">Submit</button>
+      <a class="try-again" href="/best-match" style="display: none; text-decoration: none;">
+        <button class="transparent-button start-button">Try Again</button>
+      </a>
     </div>
   </div>
-  <button class="transparent-button start-button view-combination">Combinations</button>
+  <div class="combination-button-holder">
+    <button class="transparent-button start-button view-combination">Combinations</button>
+    <button class="transparent-button icon-button refresh-combination">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+        <path d="M 2 2 L 4.9394531 4.9394531 C 3.1262684 6.7482143 2 9.2427079 2 12 C 2 17.514 6.486 22 12 22 C 17.514 22 22 17.514 22 12 C 22 6.486 17.514 2 12 2 L 12 4 C 16.411 4 20 7.589 20 12 C 20 16.411 16.411 20 12 20 C 7.589 20 4 16.411 4 12 C 4 9.7940092 4.9004767 7.7972757 6.3496094 6.3496094 L 9 9 L 9 2 L 2 2 z"></path>
+      </svg>
+    </button>
+  </div>
   <div id="combo-box" class="quiz-box">
     <div class="combo-table-wrapper">
       <table class="combo-table">

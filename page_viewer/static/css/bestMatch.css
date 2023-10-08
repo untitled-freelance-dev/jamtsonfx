@@ -276,6 +276,20 @@
     padding: 5%;
 }
 
+.combination-button-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.view-combination {
+    align-self: center;
+}
+
+.refresh-combination {
+    display: none;
+}
+
 #combo-box {
     margin: 5% 0;
 }
@@ -601,6 +615,10 @@ button>* {
     display: none;
     width: fit-content;
     height: fit-content;
+}
+.try-again {
+    display: none;
+    text-decoration:none
 }
 
 
