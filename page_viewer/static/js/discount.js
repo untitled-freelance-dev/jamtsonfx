@@ -35,7 +35,7 @@ function getRow() {
             tbodyElement.innerHTML += `<tr id="${discountResponseData.id}" class="row-${tableRowCount + index}">
                                                 <td id="propfirm-logo${tableRowCount + index}">
                                                     <div>
-                                                        <img class="propfirm-circular-image table-image" src="${discountResponseData.logo}" />
+                                                        <img class="table-image" src="${discountResponseData.logo}" />
                                                     </div>
                                                 </td>
                                                 <td id="name${tableRowCount + index}">${discountResponseData.name}</td>
@@ -178,7 +178,7 @@ function propfirmSelect(event) {
     propFirmAsyncObject.then(propFirmResponse => {
         propFirmResponse.forEach(popFirmsResponseData => {
             document.getElementById(`propfirm-logo${rowElement.rowIndex + 1}`).innerHTML = `<div>
-                                                                                                <img class="propfirm-circular-image table-image" src="${popFirmsResponseData.logo}" />
+                                                                                                <img class="table-image" src="${popFirmsResponseData.logo}" />
                                                                                             </div>`
             document.getElementById(`link-url${rowElement.rowIndex + 1}`).parentElement.href = popFirmsResponseData.url;
         });

@@ -13,10 +13,13 @@ let newsLetterFormHolder = document.querySelector('.news-letter-form-holder');
 let closeNewsLetterButton = document.querySelector('.news-letter-form-holder>i');
 
 window.addEventListener('load', windowLoad, false);
+document.querySelector('.sidebar li').addEventListener('click', hideSidebar, false);
+document.querySelector('.nav-menu-button').addEventListener('click', showSidebar, false);
 // window.addEventListener('click', closeNewsLetter, false);
 document.getElementById('news-letter-button').addEventListener('click', openNewsLetter, false);
 document.getElementById('news-letter-submit').addEventListener('click', newsLetterSubmit, false);
 closeNewsLetterButton.addEventListener('click', closeNewsLetter, false);
+
 
 function windowLoad (event) {
     isAdmin = getCookie('Asession') ? true : false;
@@ -82,6 +85,12 @@ function newsLetterSubmit(event) {
     activeToast();
 }
 
-// function editNewsLetter(event) {
-//     if (event.target.classList.contains('save')) {}
-// }
+function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'flex'
+}
+
+function hideSidebar() {
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'none'
+}

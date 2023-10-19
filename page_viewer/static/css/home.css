@@ -28,6 +28,7 @@ h3 {
 }
 
 body {
+    min-height: 100vh;    
     font-family: 'Montserrat';
 }
 
@@ -37,6 +38,93 @@ body {
 
 /* Navigation Bar */
 
+nav {
+    background-color: #222325;
+    /* box-shadow: 3px 3px 5px rgba(0,0,0,0.1); */
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 100px;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+nav a:hover {
+    background-color: #262729;
+    text-decoration: none;
+}
+
+.menu-button {
+    display: none;
+}
+
+/* Sidebar CSS */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+
+.collapse-button {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+/* 
 .navbar {
     position: relative;
     padding: 0.5rem 1.7rem;
@@ -71,7 +159,7 @@ body {
 .user-account-icon {
     font-size: 20px;
     color: #04d9ff;
-}
+} */
 
 /* content */
 
