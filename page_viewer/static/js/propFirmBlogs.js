@@ -1,7 +1,8 @@
 import { activeToast, inputFieldSelector } from "./component.js";
+import { initializeEditor } from "./plugin/init-jodit.js"
 import { createPropFirm, updatePropFirm, readPropFirms, deletePropFirm } from "./api.js";
 
-let toastShortMessage, toastDetailedMessage, propFirmBlogsElement;
+let toastShortMessage, toastDetailedMessage, propFirmBlogsElement, joditEditor;
 
 function loadPropFirmBlogs(isAdmin) {
     propFirmBlogsElement = document.getElementById('prop-firm-blogs');
@@ -21,6 +22,7 @@ function loadPropFirmBlogs(isAdmin) {
         propFirmViewDiv.addEventListener('click', selectLogo, false);
         propFirmlogoUpload.addEventListener('change', uploadLogo, false);
         inputFieldSelector('list');
+        joditEditor = initializeEditor();
     } else {
         propFirmBlogsElement.querySelector('script').remove();
         document.querySelector('.prop-firm-main-editor').remove();
