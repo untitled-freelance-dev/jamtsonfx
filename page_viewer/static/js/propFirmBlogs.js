@@ -41,7 +41,8 @@ function editPropFirmBlog(event) {
         document.getElementById('prop-firm-details').value = propFirmMainHolder.querySelector('.prop-firm-basic-info p').innerText ? propFirmMainHolder.querySelector('.prop-firm-basic-info p').innerText : '';
         document.getElementById('prop-firm-details').classList.add('has-text');
         let blogDivELement = document.getElementById("body").innerHTML;
-        tinymce.activeEditor.setContent(blogDivELement);
+        // tinymce.activeEditor.setContent(blogDivELement);
+        joditEditor.value = blogDivELement;
         document.querySelector('.prop-firm-blogs-main').style.display = 'none'
     }
     document.getElementById('prop-firm-submit').style.display = '';
@@ -51,7 +52,8 @@ function editPropFirmBlog(event) {
 }
 
 function savePropFirmBlog(event) {
-    let blogContent = tinymce.activeEditor.getContent();
+    // let blogContent = tinymce.activeEditor.getContent();
+    let blogContent = joditEditor.value;
     let formHandle = document.getElementById("prop-firm-form");
     if (propFirmBlogsElement.className === 'edit') {
         if (formHandle.checkValidity()) {
@@ -68,7 +70,8 @@ function savePropFirmBlog(event) {
                     toastDetailedMessage.innerText = `Prop Firm ${formHandle.name.value} creation Failed`;
                 }
             });
-            tinymce.activeEditor.setContent('');
+            // tinymce.activeEditor.setContent('');
+            joditEditor.value = '';
             document.getElementById('prop-firm-editor').style.display = 'none';
             document.getElementById('propfirm-edit').style.display = '';
             document.getElementById('propfirm-delete').style.display = '';
@@ -94,7 +97,8 @@ function savePropFirmBlog(event) {
                     toastDetailedMessage.innerText = `Prop Firm ${formHandle.name.value} updation Failed`;
                 }
             });
-            tinymce.activeEditor.setContent('');
+            // tinymce.activeEditor.setContent('');
+            joditEditor.value = '';
             document.getElementById('prop-firm-editor').style.display = 'none';
             document.getElementById('propfirm-edit').style.display = '';
             document.getElementById('propfirm-delete').style.display = '';
